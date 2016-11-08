@@ -2,12 +2,21 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, hashHistory } from 'react-router';
 import App from './App';
-import About from './About'
+import About from './About';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducers from './reducers'
+
+
+let store = createStore(reducers);
+
 
 render(
-    <Router history={hashHistory}>
-        <Route path="/" component={App}>
-            <Route path="/about" component={About}></Route>
-        </Route>
-    </Router>, document.getElementById('root')
+    <Provider store={store}>
+        <Router history={hashHistory}>
+            <Route path="/" component={App}>
+                <Route path="about" component={About}/>
+            </Route>
+        </Router>
+    </Provider>, document.getElementById('root')
 );
