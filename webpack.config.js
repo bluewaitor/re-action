@@ -24,10 +24,13 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                loader: ExtractTextPlugin.extract("style", "css?sourceMap!sass?sourceMap")
+                loader: ExtractTextPlugin.extract("style", "css?sourceMap!postcss!sass?sourceMap!")
             }
-        ]
+        ],
     },
+    postcss: [
+        require('autoprefixer')({ browsers: ['last 5 versions'] })
+    ],
     plugins: [
         new ExtractTextPlugin("index.css")
     ]
