@@ -29,7 +29,7 @@ module.exports = {
         ],
     },
     postcss: [
-        require('autoprefixer')({ browsers: ['last 5 versions'] })
+        require('autoprefixer')({ browsers: ['last 10 versions'] })
     ],
     plugins: [
         new ExtractTextPlugin("index.css")
